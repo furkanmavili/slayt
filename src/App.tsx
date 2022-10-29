@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "~components/layout";
 
@@ -12,17 +12,19 @@ function App() {
   console.log("rendering");
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="slides" element={<Slides />} />
-            <Route path="slides/:id" element={<Slide />} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </BrowserRouter>
+      <Suspense fallback={<div>Loading..</div>}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="slides" element={<Slides />} />
+              <Route path="slides/:id" element={<Slide />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
     </div>
   );
 }
