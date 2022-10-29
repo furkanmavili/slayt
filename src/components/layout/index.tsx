@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { styled } from "~style";
 import Header from "./header";
@@ -10,9 +11,11 @@ function Layout() {
   return (
     <Root>
       <Header />
-      <main>
-        <Outlet />
-      </main>
+      <Suspense fallback={<div>Loading</div>}>
+        <main>
+          <Outlet />
+        </main>
+      </Suspense>
     </Root>
   );
 }
