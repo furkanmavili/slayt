@@ -7,6 +7,8 @@ import { Page } from "~types";
 const Box = styled(motion.div, {
   width: 200,
   height: 120,
+  display: "grid",
+  placeItems: "center",
   border: "2px solid $gray300",
   backgroundColor: "$gray500",
   borderRadius: 10,

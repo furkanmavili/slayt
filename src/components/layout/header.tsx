@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import UserMenu from "~components/avatar";
 import { styled } from "~style";
 
@@ -11,7 +12,7 @@ const StyledHeader = styled("header", {
 function Header() {
   return (
     <StyledHeader>
-      <h3>Slayt</h3>
+      <Link to="/">Slayt</Link>
       <UserMenu />
     </StyledHeader>
   );
